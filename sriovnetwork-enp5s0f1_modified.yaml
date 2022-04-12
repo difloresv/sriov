@@ -1,0 +1,11 @@
+apiVersion: sriovnetwork.openshift.io/v1
+kind: SriovNetwork
+metadata:
+  name: sriov-net-enp5s0f1-netdev
+  namespace: openshift-sriov-network-operator
+spec:
+  networkNamespace: sriov-testing
+  vlan: 
+  resourceName: enp5s0f1Netdev
+  trust: "on"
+  capabilities: '{ "ips": true }'
