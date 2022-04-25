@@ -17,8 +17,8 @@ apiVersion: v1
 kind: Namespace
 metadata:
   name: openshift-sriov-network-operator
-  labels:
-    openshift.io/run-level: "1"
+  annotations:
+    workload.openshift.io/allowed: management
 EOF
 oc apply -f sriov-namespace.yaml
 

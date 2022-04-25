@@ -1,8 +1,8 @@
 #!/bin/bash
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
-source ${DIR}/../ocp-globals.sh
-source ${DIR}/../install_deps.sh
+source ${DIR}/ocp-globals.sh
+source ${DIR}/install_deps.sh
 
 if [ "$OCP_MAJOR_VERSION" == 4.4 ]; then
   # The following only works with 4.4
@@ -29,7 +29,7 @@ metadata:
   name: unsupported-nic-ids
   namespace: openshift-sriov-network-operator
 EOF
-countdown 40 # 30 seconds should be enough, let's make it 40
+sleep 40 # 30 seconds should be enough, let's make it 40
 fi
 
 echo "create network node policy for vfio-pci on enp5s0f0"
@@ -38,7 +38,7 @@ oc apply -f networkpolicy-vfiopci.yaml
 echo "create network node policy for netdev on enp5s0f1"
 oc apply -f networkpolicy-netdevice.yaml
 
-countdown 300
+sleep 300
 
 echo "These commands need to yield a number bigger than 0 for sriov resources on the nodes"
 for node in $(oc get nodes | awk '/worker/ {print $1}'); do

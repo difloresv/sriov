@@ -5,9 +5,8 @@ metadata:
   namespace: openshift-sriov-network-operator
 spec:
   networkNamespace: sriov-testing
-  ipam: |
-    {}
-  vlan: 
+  ipam: '{ "type": "static" }'
+  vlan: 209
   resourceName: enp5s0f0Vfiopci
   trust: "on"
   capabilities: '{ "mac": true, "ips": true }'

@@ -1,7 +1,7 @@
 apiVersion: sriovnetwork.openshift.io/v1
 kind: SriovNetworkNodePolicy
 metadata:
-  name: sriov-enp5s0f0-vfiopci-v2
+  name: sriov-enp5s0f0-vfiopci
   namespace: openshift-sriov-network-operator
 spec:
   resourceName: enp5s0f0Vfiopci
